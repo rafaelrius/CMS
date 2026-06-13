@@ -1,0 +1,182 @@
+# ── Decap CMS · piloto pacacervera ───────────────────────────────────────────
+# En LOCAL (local_backend) Decap escribe directamente en los ficheros del repo
+# vía el proxy `decap-server`; no hace falta GitHub ni login.
+# En PRODUCCIÓN se usa el backend de GitHub (ver runbook): al guardar, Decap
+# hace commit al repo y el GitHub Action reconstruye y despliega a demos/<slug>.
+
+backend:
+  name: github
+  repo: rafaelrius/CMS
+  branch: main
+  base_url: https://solitary-boat-162e.rafa-rius.workers.dev
+
+# Permite editar contra los ficheros locales cuando se ejecuta `npm run cms`.
+local_backend: true
+
+# Las fotos que sube/cambia el cliente caen aquí (y 11ty las publica en /media).
+media_folder: "src/media"
+public_folder: "/media"
+
+# Idioma del panel
+locale: "es"
+
+# Mensaje de la pantalla de inicio
+site_url: "https://pacacervera.es"
+display_url: "https://pacacervera.es"
+
+collections:
+  - name: "paginas"
+    label: "Páginas"
+    description: "Contenido editable de la web. El diseño y los efectos están bloqueados."
+    files:
+      - name: "home"
+        label: "Inicio (home)"
+        file: "src/_data/home.json"
+        description: "Textos e imágenes de la página de inicio."
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Título de la pestaña (SEO)", name: "title", widget: "string" }
+              - { label: "Descripción (SEO)", name: "description", widget: "text" }
+              - { label: "Imagen para redes (al compartir)", name: "og_image", widget: "image" }
+
+          - label: "Portada (hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Antetítulo", name: "eyebrow", widget: "string" }
+              - label: "Manifiesto (una línea por entrada · usa *texto* para cursiva)"
+                name: "manifiesto"
+                widget: "list"
+                field: { label: "Línea", name: "linea", widget: "string" }
+              - label: "Botón principal"
+                name: "cta_primary"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+              - label: "Botón secundario"
+                name: "cta_secondary"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+              - { label: "Imagen de portada", name: "imagen", widget: "image" }
+              - { label: "Texto alternativo de la imagen (accesibilidad)", name: "imagen_alt", widget: "string" }
+
+          - label: "La casa (intro)"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Entradilla", name: "lead", widget: "text" }
+              - { label: "Párrafo", name: "parrafo", widget: "text" }
+              - { label: "Cierre (en negrita)", name: "cierre", widget: "string" }
+              - { label: "Imagen", name: "imagen", widget: "image" }
+              - { label: "Texto alternativo", name: "imagen_alt", widget: "string" }
+
+          - label: "Cinco firmas"
+            name: "firmas"
+            widget: "object"
+            fields:
+              - { label: "Antetítulo", name: "eyebrow", widget: "string" }
+              - label: "Firmas"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.nombre}}"
+                fields:
+                  - { label: "Nombre", name: "nombre", widget: "string" }
+                  - { label: "Descripción", name: "descripcion", widget: "string" }
+              - label: "Botón"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+
+          - label: "Líneas de la casa"
+            name: "lineas"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Tarjetas"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Imagen", name: "imagen", widget: "image" }
+                  - { label: "Texto alternativo", name: "imagen_alt", widget: "string" }
+                  - label: "Proporción de la imagen"
+                    name: "ratio"
+                    widget: "select"
+                    options: ["3x4", "1x1"]
+                    default: "3x4"
+                  - { label: "Título", name: "titulo", widget: "string" }
+                  - { label: "Descripción", name: "descripcion", widget: "string" }
+              - label: "Botón"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+
+          - label: "Servicio de boutique"
+            name: "servicio"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Bloques"
+                name: "bloques"
+                widget: "list"
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: "titulo", widget: "string" }
+                  - { label: "Texto (admite [enlace](destino))", name: "texto", widget: "text" }
+              - label: "Botón"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+
+          - label: "Cifras"
+            name: "cifras"
+            widget: "list"
+            field: { label: "Cifra", name: "cifra", widget: "string" }
+
+          - label: "Dos boutiques"
+            name: "boutiques"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Boutiques"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.ciudad}}"
+                fields:
+                  - { label: "Ciudad", name: "ciudad", widget: "string" }
+                  - { label: "Texto", name: "texto", widget: "string" }
+                  - { label: "Enlace al mapa", name: "mapa", widget: "string" }
+              - label: "Botón"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Texto", name: "label", widget: "string" }
+                  - { label: "Enlace", name: "href", widget: "string" }
+
+          - label: "Instagram"
+            name: "instagram"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto del enlace", name: "label", widget: "string" }
+              - { label: "Enlace", name: "href", widget: "string" }
+
+          - label: "Newsletter"
+            name: "newsletter"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto", name: "texto", widget: "text" }

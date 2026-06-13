@@ -1,0 +1,16 @@
+{
+  "name": "pacacervera-cms-piloto",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Piloto WEB-FORGE: demo pacacervera con Decap CMS (Eleventy + local_backend)",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "cms": "decap-server",
+    "dev": "echo \"Abre dos terminales: 'npm run cms' (proxy local de Decap) y 'npm run serve' (sitio + /admin/)\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "decap-server": "^3.1.3"
+  }
+}

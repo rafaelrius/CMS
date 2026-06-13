@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ home.seo.title }}</title>
+  <meta name="description" content="{{ home.seo.description }}">
+  <link rel="canonical" href="https://pacacervera.es/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paca Cervera">
+  <meta property="og:title" content="Paca Cervera — Boutique de moda de lujo en Valencia y Altea">
+  <meta property="og:description" content="{{ home.seo.description }}">
+  <meta property="og:url" content="https://pacacervera.es/">
+  <meta property="og:image" content="https://pacacervera.es{{ home.seo.og_image }}">
+  <meta property="og:image:alt" content="{{ home.hero.imagen_alt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paca Cervera — Boutique de moda de lujo en Valencia y Altea">
+  <meta name="twitter:description" content="Boutique multimarca de lujo con más de 40 años. Cinco firmas internacionales en exclusiva en Valencia y Altea.">
+  <meta name="twitter:image" content="https://pacacervera.es{{ home.seo.og_image }}">
+  <link rel="icon" type="image/png" href="media/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://pacacervera.es/#organizacion",
+        "name": "Paca Cervera",
+        "url": "https://pacacervera.es/",
+        "logo": "https://pacacervera.es/media/logo-pacacervera.png",
+        "email": "info@pacacervera.es",
+        "sameAs": [
+          "https://www.instagram.com/pacacervera/",
+          "https://www.facebook.com/pacacervera",
+          "https://www.youtube.com/@pacacervera"
+        ],
+        "brand": [
+          { "@type": "Brand", "name": "Ermanno Scervino" },
+          { "@type": "Brand", "name": "Alberta Ferretti" },
+          { "@type": "Brand", "name": "Barbara Bui" },
+          { "@type": "Brand", "name": "Philippe Model" },
+          { "@type": "Brand", "name": "Philosophy by Lorenzo Serafini" }
+        ]
+      },
+      {
+        "@type": "ClothingStore",
+        "@id": "https://pacacervera.es/#boutique-valencia",
+        "name": "Paca Cervera — Boutique Valencia",
+        "parentOrganization": { "@id": "https://pacacervera.es/#organizacion" },
+        "url": "https://pacacervera.es/boutiques/",
+        "image": "https://pacacervera.es/media/img-hero-1.jpg",
+        "telephone": "+34 963 816 696",
+        "email": "info@pacacervera.es",
+        "priceRange": "€€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Sorní, 14",
+          "postalCode": "46004",
+          "addressLocality": "Valencia",
+          "addressRegion": "Valencia",
+          "addressCountry": "ES"
+        }
+      },
+      {
+        "@type": "ClothingStore",
+        "@id": "https://pacacervera.es/#boutique-altea",
+        "name": "Paca Cervera — Boutique Altea",
+        "parentOrganization": { "@id": "https://pacacervera.es/#organizacion" },
+        "url": "https://pacacervera.es/boutiques/",
+        "image": "https://pacacervera.es/media/img-sesion-1.jpg",
+        "telephone": "+34 966 880 717",
+        "email": "altea@pacacervera.es",
+        "priceRange": "€€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Conde de Altea, 3",
+          "postalCode": "03590",
+          "addressLocality": "Altea",
+          "addressRegion": "Alicante",
+          "addressCountry": "ES"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="./"><img src="media/logo-pacacervera-negro.png" width="170" height="47" alt="Paca Cervera — Shopping &amp; Experience"></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menú</button>
+      <nav id="site-menu" class="site-menu" aria-label="Navegación principal">
+        <a href="firmas/">Las firmas</a>
+        <a href="nosotras/">Nosotras</a>
+        <a href="boutiques/">Boutiques</a>
+        <a class="btn btn-ghost" href="boutiques/">Visítanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- [hero] -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 class="eyebrow">{{ home.hero.eyebrow }}</h1>
+          <p class="manifiesto">
+            {%- for linea in home.hero.manifiesto %}
+            <span class="line"><span>{{ linea | inline | safe }}</span></span>
+            {%- endfor %}
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="{{ home.hero.cta_primary.href }}">{{ home.hero.cta_primary.label }}</a>
+            <a class="btn btn-ghost" href="{{ home.hero.cta_secondary.href }}">{{ home.hero.cta_secondary.label }}</a>
+          </div>
+        </div>
+        <figure class="plate plate--1x1 hero-plate">
+          <img src="{{ home.hero.imagen }}" width="900" height="900" fetchpriority="high"
+               alt="{{ home.hero.imagen_alt }}">
+        </figure>
+      </div>
+    </section>
+
+    <!-- [intro] La casa -->
+    <section class="section band-papel">
+      <div class="wrap split">
+        <div class="stack reveal">
+          <h2 class="h2">{{ home.intro.titulo }}</h2>
+          <p class="lead measure">{{ home.intro.lead }}</p>
+          <p class="measure">{{ home.intro.parrafo }}</p>
+          <p class="measure"><strong>{{ home.intro.cierre }}</strong></p>
+        </div>
+        <figure class="plate plate--1x1 reveal">
+          <img src="{{ home.intro.imagen }}" width="900" height="900" loading="lazy" decoding="async"
+               alt="{{ home.intro.imagen_alt }}">
+        </figure>
+      </div>
+    </section>
+
+    <!-- [beneficios] El pase: cinco firmas, en exclusiva (FIRMA DE LA CASA) -->
+    <section class="pase on-dark">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="eyebrow">{{ home.firmas.eyebrow }}</h2>
+        </div>
+        <ul class="pase-list">
+          {%- for item in home.firmas.items %}
+          <li class="pase-item">
+            <span class="pase-name">{{ item.nombre }}</span>
+            <span class="pase-desc">{{ item.descripcion }}</span>
+            <span class="pase-stitch" aria-hidden="true"></span>
+          </li>
+          {%- endfor %}
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="{{ home.firmas.cta.href }}">{{ home.firmas.cta.label }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [colecciones] Las líneas -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="h2">{{ home.lineas.titulo }}</h2>
+        </div>
+        <div class="lineas-grid">
+          {%- for card in home.lineas.cards %}
+          <article class="linea reveal">
+            <figure class="plate plate--{{ card.ratio }}">
+              <img src="{{ card.imagen }}" width="{% if card.ratio == '1x1' %}900{% else %}600{% endif %}" height="{% if card.ratio == '1x1' %}900{% else %}800{% endif %}" loading="lazy" decoding="async"
+                   alt="{{ card.imagen_alt }}">
+            </figure>
+            <h3 class="h3">{{ card.titulo }}</h3>
+            <p class="muted">{{ card.descripcion }}</p>
+          </article>
+          {%- endfor %}
+        </div>
+        <div class="cta-row reveal" style="margin-top: clamp(2.5rem, 6vw, 4rem);">
+          <a class="btn btn-primary" href="{{ home.lineas.cta.href }}">{{ home.lineas.cta.label }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [proceso] El servicio de boutique -->
+    <section class="section band-papel">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="h2">{{ home.servicio.titulo }}</h2>
+        </div>
+        <div class="split" style="align-items:start;">
+          {%- for bloque in home.servicio.bloques %}
+          <div class="stack reveal">
+            <h3 class="h3">{{ bloque.titulo }}</h3>
+            <p class="measure">{{ bloque.texto | inline | safe }}</p>
+          </div>
+          {%- endfor %}
+        </div>
+        <div class="cta-row reveal" style="margin-top: clamp(2.2rem, 5vw, 3.5rem);">
+          <a class="btn btn-ghost" href="{{ home.servicio.cta.href }}">{{ home.servicio.cta.label }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [prueba-social] -->
+    <section class="section-tight" style="padding-block: clamp(3rem, 7vw, 5.5rem);">
+      <div class="wrap reveal">
+        <ul class="cifras">
+          {%- for cifra in home.cifras %}
+          <li>{{ cifra }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- [cta] Dos boutiques -->
+    <section class="section band-papel">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="h2">{{ home.boutiques.titulo }}</h2>
+        </div>
+        <div class="boutique-grid">
+          {%- for card in home.boutiques.cards %}
+          <article class="boutique-card reveal">
+            <h3 class="ciudad">{{ card.ciudad }}</h3>
+            <p>{{ card.texto }}</p>
+            <p class="boutique-cta"><a class="link-stitch" href="{{ card.mapa }}" target="_blank" rel="noopener">Cómo llegar</a></p>
+          </article>
+          {%- endfor %}
+        </div>
+        <div class="cta-row reveal" style="margin-top: clamp(2.2rem, 5vw, 3.5rem);">
+          <a class="btn btn-primary" href="{{ home.boutiques.cta.href }}">{{ home.boutiques.cta.label }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [instagram] -->
+    <section class="section center">
+      <div class="wrap reveal">
+        <h2 class="h2" style="margin-bottom:1.6rem;">{{ home.instagram.titulo }}</h2>
+        <p><a class="link-stitch" href="{{ home.instagram.href }}" target="_blank" rel="noopener">{{ home.instagram.label }}</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- [newsletter] bloque global -->
+  <section id="newsletter" class="section band-papel center newsletter" aria-label="Newsletter">
+    <div class="wrap reveal">
+      <h2 class="h2" style="margin-bottom:1rem;">{{ home.newsletter.titulo }}</h2>
+      <p class="measure" style="margin-bottom:2rem;">{{ home.newsletter.texto }}</p>
+      <form data-validate action="#" method="post"
+            data-success="Bienvenida. La primera carta llegará esta semana."
+            data-error="Revisa el correo introducido e inténtalo de nuevo.">
+        <div class="newsletter-form">
+          <div class="field">
+            <label for="nl-email">Tu correo electrónico</label>
+            <input type="email" id="nl-email" name="email" placeholder="nombre@correo.com" required>
+            <span class="error-msg">Revisa el correo introducido e inténtalo de nuevo.</span>
+          </div>
+          <button class="btn btn-primary" type="submit">Suscribirme</button>
+        </div>
+        <div class="field-check">
+          <input type="checkbox" id="nl-rgpd" name="rgpd" required>
+          <label for="nl-rgpd">He leído y acepto la <a href="privacidad/">política de privacidad</a>.
+            <span class="error-msg">Debes aceptar la política de privacidad.</span>
+          </label>
+        </div>
+      </form>
+      <div class="form-status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer on-dark">
+    <div class="wrap">
+      <p class="footer-brand">
+        <img src="media/logo-pacacervera.png" width="200" height="55" loading="lazy" decoding="async" alt="Paca Cervera">
+      </p>
+      <div class="footer-grid">
+        <div>
+          <h2>Valencia</h2>
+          <ul>
+            <li>Calle Sorní, 14 · Valencia</li>
+            <li><a href="tel:+34963816696">+34 963 816 696</a></li>
+            <li><a href="mailto:info@pacacervera.es">info@pacacervera.es</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Altea</h2>
+          <ul>
+            <li>Calle Conde de Altea, 3 · Altea</li>
+            <li><a href="tel:+34966880717">+34 966 880 717</a></li>
+            <li><a href="mailto:altea@pacacervera.es">altea@pacacervera.es</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Sigue a la casa</h2>
+          <ul>
+            <li><a href="https://www.instagram.com/pacacervera/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/pacacervera" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.youtube.com/@pacacervera" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="#newsletter">Newsletter — una carta, cada semana</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <hr class="stitch">
+        <p>© Paca Cervera. Todos los derechos reservados.</p>
+        <p><a href="privacidad/">Política de privacidad</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

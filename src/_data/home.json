@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "Boutique de moda de lujo en Valencia y Altea | Paca Cervera",
+    "description": "Boutique multimarca de lujo con más de 40 años. Ermanno Scervino, Alberta Ferretti, Barbara Bui, Philippe Model y Philosophy, en exclusiva en Valencia y Altea.",
+    "og_image": "/media/img-hero-1.jpg"
+  },
+  "hero": {
+    "eyebrow": "Boutique de moda de lujo en Valencia y Altea",
+    "manifiesto": [
+      "Cuarenta años reuniendo *en exclusiva*",
+      "las firmas que definen el buen gusto."
+    ],
+    "cta_primary": { "label": "Descubrir las firmas", "href": "firmas/" },
+    "cta_secondary": { "label": "Visitar las boutiques", "href": "boutiques/" },
+    "imagen": "/media/img-hero-1.jpg",
+    "imagen_alt": "Slingback de terciopelo rosa empolvado de la colección de calzado de Paca Cervera"
+  },
+  "intro": {
+    "titulo": "La casa",
+    "lead": "Paca Cervera reúne en Valencia y Altea las colecciones de cinco firmas internacionales, en exclusiva: Ermanno Scervino, Alberta Ferretti, Barbara Bui, Philippe Model y Philosophy by Lorenzo Serafini.",
+    "parrafo": "Prêt-à-porter y alta costura. Zapatos de diseño. Broches. Una línea de hogar.",
+    "cierre": "Pocas piezas. Elegidas una a una.",
+    "imagen": "/media/img-intro-1.jpg",
+    "imagen_alt": "Detalle de una prenda de lentejuelas doradas en un perchero de la boutique"
+  },
+  "firmas": {
+    "eyebrow": "Cinco firmas, en exclusiva",
+    "items": [
+      { "nombre": "Ermanno Scervino", "descripcion": "Bordados y encajes como obras de arte." },
+      { "nombre": "Alberta Ferretti", "descripcion": "La modernidad, en tejidos vaporosos." },
+      { "nombre": "Barbara Bui", "descripcion": "El traje de chaqueta, en clave pop-rock." },
+      { "nombre": "Philippe Model", "descripcion": "El sneaker de diseño." },
+      { "nombre": "Philosophy by Lorenzo Serafini", "descripcion": "La mirada más joven de la selección." }
+    ],
+    "cta": { "label": "Conocer las firmas", "href": "firmas/" }
+  },
+  "lineas": {
+    "titulo": "Las líneas de la casa",
+    "cards": [
+      {
+        "imagen": "/media/img-colecciones-1.jpg",
+        "imagen_alt": "Modelo con vestido largo estampado de la selección de prêt-à-porter",
+        "ratio": "3x4",
+        "titulo": "Prêt-à-porter y alta costura",
+        "descripcion": "Del fondo de armario al vestido de una sola noche."
+      },
+      {
+        "imagen": "/media/img-colecciones-2.jpg",
+        "imagen_alt": "Zapato destalonado plisado en tono arena de la colección de calzado",
+        "ratio": "1x1",
+        "titulo": "Zapatos de diseño",
+        "descripcion": "La firma empieza por los pies."
+      },
+      {
+        "imagen": "/media/img-colecciones-3.jpg",
+        "imagen_alt": "Broche de mariposa con cristales verdes y dorados, en detalle",
+        "ratio": "3x4",
+        "titulo": "Broches",
+        "descripcion": "El gesto que termina un look."
+      },
+      {
+        "imagen": "/media/img-colecciones-4.jpg",
+        "imagen_alt": "Vela de la línea Paca Cervera Home bajo una luz cálida de tarde",
+        "ratio": "3x4",
+        "titulo": "Paca Cervera Home",
+        "descripcion": "La misma mirada, aplicada a la casa."
+      }
+    ],
+    "cta": { "label": "Ver las piezas en boutique", "href": "boutiques/" }
+  },
+  "servicio": {
+    "titulo": "Lo que no cabe en una web",
+    "bloques": [
+      { "titulo": "Estilismo personal", "texto": "Una estilista, dos horas, la boutique para ti. Sesiones privadas, con cita." },
+      { "titulo": "Taller de alta costura", "texto": "Cada pieza se prueba, se ajusta y se arregla en [nuestro propio taller](nosotras/). Ninguna sale de la boutique sin caer exactamente como debe." }
+    ],
+    "cta": { "label": "Reservar una sesión", "href": "boutiques/#contacto" }
+  },
+  "cifras": [
+    "Más de 40 años",
+    "5 firmas en exclusiva",
+    "2 boutiques",
+    "Taller propio de alta costura"
+  ],
+  "boutiques": {
+    "titulo": "Dos boutiques",
+    "cards": [
+      {
+        "ciudad": "Valencia",
+        "texto": "Calle Sorní, 14 — a unos pasos del Mercado de Colón.",
+        "mapa": "https://www.google.com/maps/search/?api=1&query=Paca+Cervera+Calle+Sorn%C3%AD+14+Valencia"
+      },
+      {
+        "ciudad": "Altea",
+        "texto": "Calle Conde de Altea, 3 — en el corazón de la Costa Blanca.",
+        "mapa": "https://www.google.com/maps/search/?api=1&query=Paca+Cervera+Calle+Conde+de+Altea+3+Altea"
+      }
+    ],
+    "cta": { "label": "Horarios y contacto", "href": "boutiques/" }
+  },
+  "instagram": {
+    "titulo": "La temporada, día a día",
+    "label": "Seguir @pacacervera en Instagram",
+    "href": "https://www.instagram.com/pacacervera/"
+  },
+  "newsletter": {
+    "titulo": "Una carta, cada semana",
+    "texto": "La selección de la temporada y los consejos de nuestras estilistas, en tu correo. Nada más."
+  }
+}

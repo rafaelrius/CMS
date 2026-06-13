@@ -1,0 +1,42 @@
+# Despliegue automático: al hacer commit en main (lo hace Decap al "Publicar"),
+# se reconstruye el sitio con Eleventy y se sube por FTP al servidor de 3L Systems,
+# SIEMPRE dentro de demos/<slug> (misma regla que motor/deploy/deploy.ps1).
+name: build-and-deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# Evita despliegues solapados si el cliente guarda varias veces seguidas.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+      - run: npm run build   # eleventy -> ./_site
+
+      # Sube SOLO la salida estática a demos/<slug>. El segmento demos/ NO se
+      # toca: es la regla crítica de despliegue de WEB-FORGE.
+      - name: Deploy a demos/pacacervera por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./_site/
+          server-dir: /demos/pacacervera/   # [PENDIENTE] ajustar slug por cliente
+          # Conserva ficheros ajenos al build si los hubiera:
+          dangerous-clean-slate: false
