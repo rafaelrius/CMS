@@ -39,14 +39,22 @@ jobs:
             *) echo "ABORTADO: el destino debe estar bajo /demos/ (era: $SERVER_DIR)"; exit 1 ;;
           esac
 
-      - name: Deploy por FTP a $SERVER_DIR en el servidor de 3L Systems
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./_site/
-          server-dir: ${{ env.SERVER_DIR }}
-          # Conserva ficheros ajenos al build si los hubiera:
-          dangerous-clean-slate: false
+      # FTPS explícito aceptando el certificado del servidor (igual que el motor
+      # deploy.ps1, que usa AcceptAnyTlsCertificate). Por eso usamos lftp y no
+      # una acción que valida el certificado y rechazaría la conexión.
+      - name: Deploy por FTPS (lftp) a demos/ en el servidor de 3L Systems
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -y >/dev/null && sudo apt-get install -y lftp >/dev/null
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 2;
+            set net:timeout 20;
+            open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
+            mirror -R --verbose ./_site/ '$SERVER_DIR';
+          "
