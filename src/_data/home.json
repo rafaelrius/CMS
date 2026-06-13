@@ -2,7 +2,7 @@
   "seo": {
     "title": "Boutique de moda de lujo en Valencia y Altea | Paca Cervera",
     "description": "Boutique multimarca de lujo con más de 40 años. Ermanno Scervino, Alberta Ferretti, Barbara Bui, Philippe Model y Philosophy, en exclusiva en Valencia y Altea.",
-    "og_image": "/media/img-hero-1.jpg"
+    "og_image": "media/img-hero-1.jpg"
   },
   "hero": {
     "eyebrow": "Boutique de moda de lujo en Valencia y Altea",
@@ -12,7 +12,7 @@
     ],
     "cta_primary": { "label": "Descubrir las firmas", "href": "firmas/" },
     "cta_secondary": { "label": "Visitar las boutiques", "href": "boutiques/" },
-    "imagen": "/media/img-hero-1.jpg",
+    "imagen": "media/img-hero-1.jpg",
     "imagen_alt": "Slingback de terciopelo rosa empolvado de la colección de calzado de Paca Cervera"
   },
   "intro": {
@@ -20,7 +20,7 @@
     "lead": "Paca Cervera reúne en Valencia y Altea las colecciones de cinco firmas internacionales, en exclusiva: Ermanno Scervino, Alberta Ferretti, Barbara Bui, Philippe Model y Philosophy by Lorenzo Serafini.",
     "parrafo": "Prêt-à-porter y alta costura. Zapatos de diseño. Broches. Una línea de hogar.",
     "cierre": "Pocas piezas. Elegidas una a una.",
-    "imagen": "/media/img-intro-1.jpg",
+    "imagen": "media/img-intro-1.jpg",
     "imagen_alt": "Detalle de una prenda de lentejuelas doradas en un perchero de la boutique"
   },
   "firmas": {
@@ -38,28 +38,28 @@
     "titulo": "Las líneas de la casa",
     "cards": [
       {
-        "imagen": "/media/img-colecciones-1.jpg",
+        "imagen": "media/img-colecciones-1.jpg",
         "imagen_alt": "Modelo con vestido largo estampado de la selección de prêt-à-porter",
         "ratio": "3x4",
         "titulo": "Prêt-à-porter y alta costura",
         "descripcion": "Del fondo de armario al vestido de una sola noche."
       },
       {
-        "imagen": "/media/img-colecciones-2.jpg",
+        "imagen": "media/img-colecciones-2.jpg",
         "imagen_alt": "Zapato destalonado plisado en tono arena de la colección de calzado",
         "ratio": "1x1",
         "titulo": "Zapatos de diseño",
         "descripcion": "La firma empieza por los pies."
       },
       {
-        "imagen": "/media/img-colecciones-3.jpg",
+        "imagen": "media/img-colecciones-3.jpg",
         "imagen_alt": "Broche de mariposa con cristales verdes y dorados, en detalle",
         "ratio": "3x4",
         "titulo": "Broches",
         "descripcion": "El gesto que termina un look."
       },
       {
-        "imagen": "/media/img-colecciones-4.jpg",
+        "imagen": "media/img-colecciones-4.jpg",
         "imagen_alt": "Vela de la línea Paca Cervera Home bajo una luz cálida de tarde",
         "ratio": "3x4",
         "titulo": "Paca Cervera Home",

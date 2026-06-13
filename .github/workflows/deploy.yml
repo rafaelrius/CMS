@@ -29,7 +29,7 @@ jobs:
 
       # Sube SOLO la salida estática a demos/<slug>. El segmento demos/ NO se
       # toca: es la regla crítica de despliegue de WEB-FORGE.
-      - name: Deploy a demos/pacacervera por FTP
+      - name: Deploy a demos/pacacervera-cms por FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -37,6 +37,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./_site/
-          server-dir: /demos/pacacervera/   # [PENDIENTE] ajustar slug por cliente
+          server-dir: /demos/pacacervera-cms/   # piloto CMS (no pisa la demo original)
           # Conserva ficheros ajenos al build si los hubiera:
           dangerous-clean-slate: false

@@ -15,7 +15,7 @@ local_backend: true
 
 # Las fotos que sube/cambia el cliente caen aquí (y 11ty las publica en /media).
 media_folder: "src/media"
-public_folder: "/media"
+public_folder: "media"
 
 # Idioma del panel
 locale: "es"
