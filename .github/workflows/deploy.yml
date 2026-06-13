@@ -13,6 +13,10 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
 
+# Destino en el servidor de 3L Systems. SIEMPRE bajo demos/, NUNCA en la raíz.
+env:
+  SERVER_DIR: /demos/pacacervera-cms/
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,9 +31,15 @@ jobs:
       - run: npm ci
       - run: npm run build   # eleventy -> ./_site
 
-      # Sube SOLO la salida estática a demos/<slug>. El segmento demos/ NO se
-      # toca: es la regla crítica de despliegue de WEB-FORGE.
-      - name: Deploy a demos/pacacervera-cms por FTP
+      # Salvaguarda (igual que deploy.ps1): aborta si el destino no está bajo demos/.
+      - name: Salvaguarda — destino siempre bajo demos/
+        run: |
+          case "$SERVER_DIR" in
+            /demos/*) echo "Destino OK: $SERVER_DIR" ;;
+            *) echo "ABORTADO: el destino debe estar bajo /demos/ (era: $SERVER_DIR)"; exit 1 ;;
+          esac
+
+      - name: Deploy por FTP a $SERVER_DIR en el servidor de 3L Systems
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -37,6 +47,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./_site/
-          server-dir: /demos/pacacervera-cms/   # piloto CMS (no pisa la demo original)
+          server-dir: ${{ env.SERVER_DIR }}
           # Conserva ficheros ajenos al build si los hubiera:
           dangerous-clean-slate: false
